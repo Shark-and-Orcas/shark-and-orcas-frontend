@@ -1,0 +1,73 @@
+.Board
+    position: relative
+    .Background
+        width: 100%
+        height: 100%
+        position: absolute
+        top: 0
+        .spans
+            width: 100%
+            height: 100%
+            position: relative
+            & span
+                position: absolute
+                width: 100%
+                border: 2px solid black
+            .cl1
+                top: 0%
+            .cl2
+                top: 25%
+            .cl3
+                top: 50%
+            .cl4
+                top: 75%
+            .cl5
+                top: 100%
+            .r
+                top: 50%
+                rotate: 90deg
+            .rl1
+                left: -50%
+            .rl2
+                left: -25%
+            .rl3
+                left: 0%
+            .rl4
+                left: 25%
+            .rl5
+                left: 50%
+            .d1
+                transform: skewY(45deg)
+            .d2
+                transform: skewY(135deg)
+            .box
+                top: 14.8%
+                left: 14.444%
+                rotate: 45deg
+                height: 71%
+                width: 71%
+    .Positions
+        $posSize: 40px
+        position: absolute
+        display: flex
+        flex-direction: column
+        height: calc( 100% + $posSize)
+        width: calc( 100% + $posSize)
+        margin: calc(0px - $posSize / 2)
+        justify-content: space-between
+        .rows
+            display: flex
+            flex-direction: row
+            justify-content: space-between
+        .pos
+            box-sizing: border-box
+            height: $posSize
+            width: $posSize
+            display: flex
+            align-items: center
+            justify-content: center
+            border-radius: calc($posSize / 2)
+            background: black
+            color: white
+        .active
+            background: gray
