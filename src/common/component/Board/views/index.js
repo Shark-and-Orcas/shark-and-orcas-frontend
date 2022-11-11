@@ -6,7 +6,7 @@ export default function Board({
   width = "400px",
   board,
   highlight,
-  setTempClicked,
+  clickHandler,
 }) {
   return (
     <div className="Board" style={{ height: height, width: width }}>
@@ -38,8 +38,7 @@ export default function Board({
                     : "pos"
                 }
                 onClick={() => {
-                  // posClicked({ x: index, y: ri });
-                  setTempClicked({ x: index, y: ri });
+                  clickHandler({ x: index, y: ri });
                 }}
               >
                 {rv === "T" ? <p>T</p> : null}

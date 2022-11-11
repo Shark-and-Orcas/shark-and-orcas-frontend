@@ -14,11 +14,9 @@ function App() {
     socket.off("goatPlaced").on("goatPlaced", (res) => {
       console.log("goat should be placed");
       goatPlacer(res.to);
-      // setTurn((currentTurn) => (currentTurn === "T" ? "G" : "T"));
     });
     socket.off("moved").on("moved", (res) => {
       movesHandler(res.from, res.to);
-      // setTurn((currentTurn) => (currentTurn === "T" ? "G" : "T"));
     });
   }, []);
   const [userName, setUsername] = useState("");
@@ -27,21 +25,21 @@ function App() {
     board,
     highlight,
     turn,
-    setTempClicked,
     initialGoat,
     goatPlacer,
     movesHandler,
-    setTurn,
+    clickHandler,
+    killedGoat,
   } = useLogic(socket);
   return (
     <div className="App">
       <h2>{turn}</h2>
       <h4>Number of goats palced: {initialGoat} </h4>
+      <p>Number of goats killed: {killedGoat}</p>
       <p>{response}</p>
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          socket.emit("join", { userName, room });
         }}
       >
         <input
@@ -64,11 +62,7 @@ function App() {
       </form>
       <hr />
       <hr />
-      <Board
-        board={board}
-        highlight={highlight}
-        setTempClicked={setTempClicked}
-      />
+      <Board board={board} highlight={highlight} clickHandler={clickHandler} />
     </div>
   );
 }
