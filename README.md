@@ -1,5 +1,5 @@
 # Shark and Orcas Frontend
-## Features todo;
+## Features todo:
 - [ ] **Create a page to take username**:<br/>
 Check if there is username in localstorage if not then take username and store it to local storage<br/>
 - [ ] **Connect with backend global socket**:<br/>
